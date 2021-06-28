@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:weather_news/HomePage.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -2,20 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class sample extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class sampele1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 ///appbarを透明にしたやつ
 Widget ClearAppBar() {
   return AppBar(
@@ -28,14 +14,20 @@ Widget ClearAppBar() {
 }
 
 ///背景をセットする
-Widget BackgroundView() {
+Widget BackgroundView(int i) {
   return Container(
     height: double.infinity,
     width: double.infinity,
     decoration: BoxDecoration(
       image: DecorationImage(
+//        image: i == 0
+//            ? NetworkImage(
+//                "https://free-materials.com/adm/wp-content/uploads/2016/03/28aa11b03a244096c87aada442847714.jpg")
+//            : Container(),
+
+        ///これ晴れのやつ
         image: NetworkImage(
-            "https://media.istockphoto.com/videos/tropical-beach-video-id473215013?s=640x640"),
+            "https://www.beiz.jp/images_M/sea-ocean/sea-ocean_00029.jpg"),
         fit: BoxFit.cover,
       ),
     ),
@@ -71,9 +63,9 @@ Widget YourLocation(String place) {
   return Text(
     place,
     style: TextStyle(
-      fontSize: 30,
+      fontSize: 25,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: (place == "不正な郵便番号です") ? Colors.red : Colors.white,
     ),
   );
 }
@@ -81,7 +73,7 @@ Widget YourLocation(String place) {
 ///その土地の現在の天気
 Widget CurrentCondition(String condition) {
   return Text(
-    condition,
+    "${condition}",
     style: TextStyle(
       fontSize: 30,
       color: Colors.white,
@@ -92,7 +84,7 @@ Widget CurrentCondition(String condition) {
 ///その土地の現在の気温
 Widget CurrentTemperature(String temperature) {
   return Text(
-    temperature,
+    "${temperature}°",
     style: TextStyle(
       fontSize: 80,
       fontWeight: FontWeight.bold,
@@ -118,7 +110,7 @@ Widget CurrentMaxAndMin(int max, int min) {
       Text(
         "最低：${min}°",
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 15,
           color: Colors.white,
         ),
       ),
